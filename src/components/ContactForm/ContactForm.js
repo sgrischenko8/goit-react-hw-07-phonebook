@@ -2,6 +2,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { Formik, Form, Field } from 'formik';
 import { Button } from 'components/Button/Button';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from './ContactForm.module.css';
 
 const initialValues = { name: '', phone: '' };
@@ -22,7 +24,7 @@ export const ContactForm = () => {
         item => item?.name.toLowerCase() === values.name.toLowerCase()
       )
     ) {
-      return alert(`${values.name} is already in contacts.`);
+      return toast.error(`${values.name} is already in contacts.`);
     }
 
     dispatch(addContact(values));

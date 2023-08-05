@@ -5,6 +5,7 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 import Loader from './Loader/Loader';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
+import { ToastContainer } from 'react-toastify';
 import styles from './App.module.css';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
       <Filter />
 
       <ContactList />
+      <ToastContainer theme="colored" autoClose={1000} />
     </main>
   );
 };
