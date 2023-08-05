@@ -5,7 +5,7 @@ import styles from './ThemeSwitcher.module.css';
 export const ThemeSwitcher = () => {
   const theme = useSelector(state => state.theme.theme);
 
-  function check() {
+  function checkTheme() {
     if (theme === 'dark') {
       document.body.style.backgroundColor = 'rgb(32, 32, 37)';
       document.body.style.color = 'rgb(239, 240, 228)';
@@ -20,7 +20,7 @@ export const ThemeSwitcher = () => {
   const dispatch = useDispatch();
 
   function toggleTheme() {
-    check();
+    checkTheme();
     let nextTheme = '';
     theme === 'dark' ? (nextTheme = 'light') : (nextTheme = 'dark');
     dispatch(setTheme(nextTheme));
@@ -32,7 +32,7 @@ export const ThemeSwitcher = () => {
       <input
         type="checkbox"
         id="checkbox"
-        checked={check()}
+        checked={checkTheme()}
         onChange={toggleTheme}
       />
       <span className={styles.light}>light</span>
