@@ -1,0 +1,19 @@
+.btn {
+  width: 100px;
+  cursor: pointer;
+  color: #07d497;
+  background-color: inherit;
+  border-color: #07d497;
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px;
+}
+
+li .btn {
+  color: #aa2424;
+  border-color: #aa2424;
+  box-shadow: 1px 1px 4px;
+}
+
+button:hover {
+  opacity: 0.8;
+}

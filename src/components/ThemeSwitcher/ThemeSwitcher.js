@@ -1,0 +1,41 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { setTheme } from 'redux/themeSlice';
+import styles from './ThemeSwitcher.module.css';
+
+export const ThemeSwitcher = () => {
+  const theme = useSelector(state => state.theme.theme);
+
+  function check() {
+    if (theme === 'dark') {
+      document.body.style.backgroundColor = 'rgb(32, 32, 37)';
+      document.body.style.color = 'rgb(239, 240, 228)';
+      return false;
+    } else {
+      document.body.style.backgroundColor = 'rgb(239, 240, 228)';
+      document.body.style.color = 'rgb(32, 32, 37)';
+      return true;
+    }
+  }
+
+  const dispatch = useDispatch();
+
+  function toggleTheme() {
+    check();
+    let nextTheme = '';
+    theme === 'dark' ? (nextTheme = 'light') : (nextTheme = 'dark');
+    dispatch(setTheme(nextTheme));
+  }
+  return (
+    <div className={styles.theme_switcher}>
+      <span className={styles.dark}> dark</span>
+      <label htmlFor="checkbox"></label>
+      <input
+        type="checkbox"
+        id="checkbox"
+        checked={check()}
+        onChange={toggleTheme}
+      />
+      <span className={styles.light}>light</span>
+    </div>
+  );
+};

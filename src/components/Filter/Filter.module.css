@@ -1,0 +1,13 @@
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.label input {
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  border: 1px solid #07d497;
+  border-radius: 4px;
+  background-color: inherit;
+}
