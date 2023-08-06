@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setTheme } from 'redux/themeSlice';
+import { selectTheme } from 'redux/selectors';
 import styles from './ThemeSwitcher.module.css';
 
 export const ThemeSwitcher = () => {
-  const theme = useSelector(state => state.theme.theme);
+  const theme = useSelector(selectTheme);
 
   function checkTheme() {
     if (theme === 'dark') {

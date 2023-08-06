@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
+import { selectLoading } from 'redux/selectors';
 import PropTypes from 'prop-types';
 import styles from './Button.module.css';
 
 export const Button = ({ children, onClick }) => {
-  const loading = useSelector(state => state.contacts.isLoading);
+  const loading = useSelector(selectLoading);
   return (
     <button
       className={styles.btn}

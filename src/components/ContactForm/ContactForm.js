@@ -3,6 +3,7 @@ import { addContact } from 'redux/operations';
 import { Formik, Form, Field } from 'formik';
 import { Button } from 'components/Button/Button';
 import { toast } from 'react-toastify';
+import { selectContacts } from 'redux/selectors';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './ContactForm.module.css';
 
@@ -10,7 +11,7 @@ const initialValues = { name: '', phone: '' };
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(selectContacts);
 
   function handleSubmit(values, actions) {
     if (!contacts) {
