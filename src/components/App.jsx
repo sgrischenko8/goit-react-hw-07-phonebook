@@ -11,21 +11,25 @@ import styles from './App.module.css';
 const App = () => {
   const loading = useSelector(state => state.contacts.isLoading);
   const error = useSelector(state => state.contacts.error);
-
   return (
-    <main className={styles.main}>
-      {loading && <Loader />}
-      {error && <ErrorMessage />}
-      <ThemeSwitcher />
-      <h1>Phonebook</h1>
-      <ContactForm />
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <main className={styles.main}>
+          {error && <ErrorMessage />}
+          <ThemeSwitcher />
+          <h1>Phonebook</h1>
+          <ContactForm />
 
-      <h2>Contacts</h2>
-      <Filter />
+          <h2>Contacts</h2>
+          <Filter />
 
-      <ContactList />
-      <ToastContainer theme="colored" autoClose={1000} />
-    </main>
+          <ContactList />
+          <ToastContainer theme="colored" autoClose={1000} />
+        </main>
+      )}
+    </>
   );
 };
 export default App;
