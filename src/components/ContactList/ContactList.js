@@ -24,7 +24,9 @@ export const ContactList = () => {
     );
   }
 
-  const contactToRender = getContactsToRender();
+  const contactToRender = [...getContactsToRender()].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
 
   return (
     <ul>
